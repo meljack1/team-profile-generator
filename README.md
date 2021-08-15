@@ -33,7 +33,7 @@ Click image below for a video tutorial:
 More screenshots:
 ![Screenshot of deployed website](./images/screenshot2.PNG)
 ![Screenshot of email link](./images/screenshot3.PNG)
-![Screenshot of example terminal input](./images/screenshot3.PNG)
+![Screenshot of example terminal input](./images/screenshot4.PNG)
 
 Example shown in [index.html](./dist/index.html)
 

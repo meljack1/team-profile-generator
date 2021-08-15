@@ -25,6 +25,10 @@ inquirer
         type: 'input',
         message: "Enter the team manager's email address.",
         name: 'email',
+        validate: function(email)
+        {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
     },
     {
         type: 'input',
@@ -69,6 +73,10 @@ function engineerPrompts() {
             type: 'input',
             message: "Enter the engineer's email address.",
             name: 'email',
+            validate: function(email)
+        {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
         },
         {
             type: 'input',
@@ -113,6 +121,10 @@ function internPrompts() {
             type: 'input',
             message: "Enter the intern's email address.",
             name: 'email',
+            validate: function(email)
+        {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
         },
         {
             type: 'input',

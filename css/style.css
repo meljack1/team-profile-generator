@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&Hind+Siliguri:wght@500&display=swap');
+
+:root {
+    --header: #474647;
+    --team-lead: #F45D01;
+    --engineer: #2D7DD2;
+    --intern: #97CC04;
+}
+
+header {
+    background-color: var(--header);
+    color: white;
+    text-align: center;
+    font-family: 'Hind Siliguri', sans-serif;
+    padding: 15px;
+    margin-bottom: 30px;
+}
+
+main {
+    width: 85%;
+    margin: auto;
+}
+
+.card-header {
+    font-family: 'Hind Siliguri', sans-serif;
+}
+
+.card {
+    margin: 10px auto;
+    font-family: 'Raleway', sans-serif;
+}
+
+.team-manager {
+    background-color: var(--team-lead);
+}
+
+.engineer {
+    background-color: var(--engineer);
+}
+
+.intern {
+    background-color: var(--intern);
+}
+
+@media only screen and (min-width: 768px) {
+    main {
+        width: 85%;
+    }
+    .card {
+        width: 320px;
+    }
+}

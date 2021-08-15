@@ -51,7 +51,7 @@ inquirer
           internPrompts();
       } else if (response.addNew === "Generate HTML") {
           const errorFunction = (err) => err ? console.error(err) : console.log('Commit logged!');
-          fs.writeFile('./index.html', generateHTML.generateHTML(managerObject, engineerObjects, internObjects), errorFunction);
+          fs.writeFile('./dist/index.html', generateHTML.generateHTML(managerObject, engineerObjects, internObjects), errorFunction);
       }
   }
 );
@@ -99,7 +99,7 @@ function engineerPrompts() {
             internPrompts();
         } else if (response.addNew === "Generate HTML") {
             const errorFunction = (err) => err ? console.error(err) : console.log('Commit logged!');
-            fs.writeFile('./index.html', generateHTML.generateHTML(managerObject, engineerObjects, internObjects), errorFunction);
+            fs.writeFile('./dist/index.html', generateHTML.generateHTML(managerObject, engineerObjects, internObjects), errorFunction);
         }
     });
 }
@@ -147,7 +147,7 @@ function internPrompts() {
             internPrompts();
         } else if (response.addNew === "Generate HTML") {
             const errorFunction = (err) => err ? console.error(err) : console.log('Commit logged!');
-            fs.writeFile('./index.html', generateHTML.generateHTML(managerObject, engineerObjects, internObjects), errorFunction);
+            fs.writeFile('./dist/index.html', generateHTML.generateHTML(managerObject, engineerObjects, internObjects), errorFunction);
         }
     });
 }

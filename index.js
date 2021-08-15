@@ -1,18 +1,13 @@
 const inquirer = require("inquirer");
 const fs = require("fs"); 
-const generateHTML = require("./js/generateHTML.js")
-const addNew = ["Add new Engineer", "Add new Intern", "Generate HTML"];
+const Engineer = require('../lib/Engineer');
+const Intern = require('../lib/Intern');
+const Manager = require('../lib/Manager');
+const generateHTML = require("./src/generateHTML.js");
 
-const teamMembers = [];
-
-function TeamMember(data) {
-    for (const property in data) {
-        if (property == "addNew"){
-            return;
-        }
-        this[property] = data[property];
-    }
-}
+let managerObject;
+const internObjects = [];
+const engineerObjects = [];
 
 inquirer
     .prompt([
@@ -39,13 +34,13 @@ inquirer
     {
         type: 'list',
         message: "Would you like to add another team member?",
-        choices: addNew,
+        choices: ["Add new Engineer", "Add new Intern", "Generate HTML"],
         name: 'addNew',
     },
 ])
   .then((response) => {
-      const manager = new TeamMember(response);
-      teamMembers.push(manager);
+      const manager = new Manager(response.name, response.id, response.email, response.officeNumber);
+      managerObject = manager;
       if (response.addNew === "Add new Engineer") {
           engineerPrompts();
       } else if (response.addNew === "Add new Intern") {
@@ -83,13 +78,13 @@ function engineerPrompts() {
         {
             type: 'list',
             message: "Would you like to add another team member?",
-            choices: addNew,
+            choices: ["Add new Engineer", "Add new Intern", "Generate HTML"],
             name: 'addNew',
         },
     ])
     .then((response) => {
-        const engineer = new TeamMember(response);
-        teamMembers.push(engineer);
+        const engineer = new Engineer(response.name, response.id, response.email, response.github);
+        engineerObjects.push(engineer);
         if (response.addNew === "Add new Engineer") {
             engineerPrompts();
         } else if (response.addNew === "Add new Intern") {
@@ -127,13 +122,13 @@ function internPrompts() {
         {
             type: 'list',
             message: "Would you like to add another team member?",
-            choices: addNew,
+            choices: ["Add new Engineer", "Add new Intern", "Generate HTML"],
             name: 'addNew',
         },
     ])
     .then((response) => {
-        const intern = new TeamMember(response);
-        teamMembers.push(intern);
+        const intern = new Intern(response.name, response.id, response.email, response.school);
+        internObjects.push(intern);
         if (response.addNew === "Add new Engineer") {
             engineerPrompts();
         } else if (response.addNew === "Add new Intern") {

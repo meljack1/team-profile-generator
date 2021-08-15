@@ -28,7 +28,7 @@ const generateHTML = (manager, engineers, interns) => {
                 </div>
             </div>` 
 + generateEngineers(engineers)
-+ generateEngineers(interns)
++ generateInterns(interns)
 +        `
         </main>
     </body>

@@ -41,7 +41,7 @@ function generateEngineers(engineers) {
         string +=
         `
             <div class="card mb-3">
-                <div class="card-header text-white team-manager">
+                <div class="card-header text-white engineer">
                     <h2>${engineer.name}</h2>
                     <h3>Engineer</h3> 
                 </div>
@@ -63,7 +63,7 @@ function generateInterns(interns) {
         string +=
         `
             <div class="card mb-3">
-                <div class="card-header text-white team-manager">
+                <div class="card-header text-white intern">
                     <h2>${intern.name}</h2>
                     <h3>Engineer</h3> 
                 </div>

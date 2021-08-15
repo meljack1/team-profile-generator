@@ -26,10 +26,57 @@ const generateHTML = (manager, engineers, interns) => {
                         <li class="list-group-item">Office number: ${manager.officeNumber}</li>
                     </ul>
                 </div>
-            </div>
+            </div>` 
++ generateEngineers(engineers)
++ generateEngineers(interns)
++        `
         </main>
     </body>
     </html>`
+}
+
+function generateEngineers(engineers) {
+    let string = ``;
+    engineers.forEach(engineer => {
+        string +=
+        `
+            <div class="card mb-3">
+                <div class="card-header text-white team-manager">
+                    <h2>${engineer.name}</h2>
+                    <h3>Engineer</h3> 
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">ID: ${engineer.id}</li>
+                        <li class="list-group-item">Email: ${engineer.email} </li>
+                        <li class="list-group-item">GitHub: ${engineer.github}</li>
+                      </ul>
+                </div>
+            </div> \n`
+    } )
+    return string;
+}
+
+function generateInterns(interns) {
+    let string = ``;
+    interns.forEach(intern => {
+        string +=
+        `
+            <div class="card mb-3">
+                <div class="card-header text-white team-manager">
+                    <h2>${intern.name}</h2>
+                    <h3>Engineer</h3> 
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">ID: ${intern.id}</li>
+                        <li class="list-group-item">Email: ${internemail} </li>
+                        <li class="list-group-item">GitHub: ${intern.school}</li>
+                      </ul>
+                </div>
+            </div> \n`
+    } )
+    return string;
 }
 
 module.exports = { 

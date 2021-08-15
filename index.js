@@ -1,8 +1,8 @@
 const inquirer = require("inquirer");
 const fs = require("fs"); 
-const Engineer = require('../lib/Engineer');
-const Intern = require('../lib/Intern');
-const Manager = require('../lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
+const Manager = require('./lib/Manager');
 const generateHTML = require("./src/generateHTML.js");
 
 let managerObject;
@@ -47,7 +47,7 @@ inquirer
           internPrompts();
       } else if (response.addNew === "Generate HTML") {
           const errorFunction = (err) => err ? console.error(err) : console.log('Commit logged!');
-          fs.writeFile('./index.html', generateHTML.generateHTML(teamMembers), errorFunction);
+          fs.writeFile('./index.html', generateHTML.generateHTML(managerObject, engineerObjects, internObjects), errorFunction);
       }
   }
 );
@@ -91,7 +91,7 @@ function engineerPrompts() {
             internPrompts();
         } else if (response.addNew === "Generate HTML") {
             const errorFunction = (err) => err ? console.error(err) : console.log('Commit logged!');
-            fs.writeFile('./index.html', generateHTML.generateHTML(teamMembers), errorFunction);
+            fs.writeFile('./index.html', generateHTML.generateHTML(managerObject, engineerObjects, internObjects), errorFunction);
         }
     });
 }
@@ -135,7 +135,7 @@ function internPrompts() {
             internPrompts();
         } else if (response.addNew === "Generate HTML") {
             const errorFunction = (err) => err ? console.error(err) : console.log('Commit logged!');
-            fs.writeFile('./index.html', generateHTML.generateHTML(teamMembers), errorFunction);
+            fs.writeFile('./index.html', generateHTML.generateHTML(managerObject, engineerObjects, internObjects), errorFunction);
         }
     });
 }

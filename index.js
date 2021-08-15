@@ -1,5 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs"); 
+const generateHTML = require("./js/generateHTML.js")
 const addNew = ["Add new Engineer", "Add new Intern", "Generate HTML"];
 
 const teamMembers = [];
@@ -45,12 +46,13 @@ inquirer
   .then((response) => {
       const manager = new TeamMember(response);
       teamMembers.push(manager);
-      if (response.addNew == "Add new Engineer") {
+      if (response.addNew === "Add new Engineer") {
           engineerPrompts();
-      } else if (response.addNew == "Add new Intern") {
+      } else if (response.addNew === "Add new Intern") {
           internPrompts();
-      } else if (response.addNew == "Generate HTML") {
-          console.log(teamMembers);
+      } else if (response.addNew === "Generate HTML") {
+          const errorFunction = (err) => err ? console.error(err) : console.log('Commit logged!');
+          fs.writeFile('./index.html', generateHTML.generateHTML(teamMembers), errorFunction);
       }
   }
 );
@@ -88,12 +90,13 @@ function engineerPrompts() {
     .then((response) => {
         const engineer = new TeamMember(response);
         teamMembers.push(engineer);
-        if (response.addNew == "Add new Engineer") {
+        if (response.addNew === "Add new Engineer") {
             engineerPrompts();
-        } else if (response.addNew == "Add new Intern") {
+        } else if (response.addNew === "Add new Intern") {
             internPrompts();
-        } else if (response.addNew == "Generate HTML") {
-            console.log(teamMembers);
+        } else if (response.addNew === "Generate HTML") {
+            const errorFunction = (err) => err ? console.error(err) : console.log('Commit logged!');
+            fs.writeFile('./index.html', generateHTML.generateHTML(teamMembers), errorFunction);
         }
     });
 }
@@ -131,12 +134,13 @@ function internPrompts() {
     .then((response) => {
         const intern = new TeamMember(response);
         teamMembers.push(intern);
-        if (response.addNew == "Add new Engineer") {
+        if (response.addNew === "Add new Engineer") {
             engineerPrompts();
-        } else if (response.addNew == "Add new Intern") {
+        } else if (response.addNew === "Add new Intern") {
             internPrompts();
-        } else if (response.addNew == "Generate HTML") {
-            console.log(teamMembers);
+        } else if (response.addNew === "Generate HTML") {
+            const errorFunction = (err) => err ? console.error(err) : console.log('Commit logged!');
+            fs.writeFile('./index.html', generateHTML.generateHTML(teamMembers), errorFunction);
         }
     });
 }

@@ -50,6 +50,7 @@ Tests are found in /tests folder. Run the tests using the following command from
 
 ## Credits 
 Email validator function regex referenced from [UI.dev](https://ui.dev/validate-email-address-javascript/)
+
 CSS Framework used: [Bootstrap](https://getbootstrap.com/)
 
 ## Contact
